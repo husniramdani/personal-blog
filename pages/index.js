@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <div className='base-text-color'>
+    <div>
       <Head>
         <title>Blog</title>
         <meta name="description" content="Personal Blog Spindyzel" />
