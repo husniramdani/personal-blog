@@ -16,6 +16,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Poppins", "Helvetica", "Arial", "sans-serif"],
+        serif: ['"Times New Roman"', 'ui-serif', 'Georgia', 'Cambria', 'Times', 'serif']
       },
       width: {
         18: "4.5rem",
@@ -27,6 +28,11 @@ module.exports = {
         42: "10.5rem",
         46: "11.5rem",
         50: "12.5rem",
+        76: "19rem",
+        84: "21rem",
+        88: "22rem",
+        90: "22.5rem",
+        92: "23rem",
         100: "25rem",
         104: "26rem",
         108: "27rem",
@@ -48,6 +54,11 @@ module.exports = {
         160: "40rem",
         200: "50rem",
       },
+      minHeight: {
+        152: "38rem",
+        156: "39rem",
+        160: "40rem",
+      }
     },
     colors: {
       white: colors.white,
@@ -55,6 +66,7 @@ module.exports = {
       black: "#201F1F",
       sand: "#F9F4EC",
       orange: "#EE5626",
+      purple: "#35109F",
     },
   },
   variants: {
@@ -64,5 +76,7 @@ module.exports = {
       cursor: ["disabled"],
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 };

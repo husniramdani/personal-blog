@@ -11,25 +11,25 @@ export default function Footer() {
       <h6 className="font-semibold underline">gblog@gmail.com</h6>
       <div className="flex flex-row">
         <CircleButton link="https://www.twitter.com/spindyzel">
-            <TwitterLogo
-                className="m-auto stroke-current text-black group-hover:text-orange"
-                size={28}
-                weight="fill"
-            />
+          <TwitterLogo
+            className="m-auto stroke-current text-black group-hover:text-orange"
+            size={24}
+            weight="fill"
+          />
         </CircleButton>
         <CircleButton link="https://www.github.com/husniramdani/personal-blog">
-            <GithubLogo
-                className="m-auto stroke-current text-black group-hover:text-orange"
-                size={28}
-                weight="fill"
-            />
+          <GithubLogo
+            className="m-auto stroke-current text-black group-hover:text-orange"
+            size={24}
+            weight="fill"
+          />
         </CircleButton>
         <CircleButton link="https://www.figma.com/community/file/1047928907190850139">
-            <FigmaLogo
-                className="m-auto stroke-current text-black group-hover:text-orange"
-                size={28}
-                weight="fill"
-            />
+          <FigmaLogo
+            className="m-auto stroke-current text-black group-hover:text-orange"
+            size={24}
+            weight="fill"
+          />
         </CircleButton>
       </div>
     </footer>

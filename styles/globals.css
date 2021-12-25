@@ -29,3 +29,10 @@ a {
 #toogle-theme:checked ~ .toggle-dot {
   transform: translateX(28px);
 }
+
+.rounded-center {
+  @apply rounded-full flex justify-center items-center;
+}
+/* .grid-content:nth-child(even){
+  background-color: red;
+} */

@@ -1,15 +1,15 @@
 import React from "react";
 
-export default function CircleButton({ link, children}) {
+export default function CircleButton({ link, children }) {
   return (
-    <div className="group">
-        <a
-            href={link}
-            target="_blank"
-            className="flex item-center border-[3px] border-black group-hover:border-orange h-12 w-12 rounded-full ml-3"
-        >
-            {children}
-        </a>
+    <div className="group ml-3 rounded-center h-[2.8rem] w-[2.8rem] bg-black hover:bg-gradient-to-b hover:from-orange hover:to-purple">
+      <a
+        href={link}
+        target="_blank"
+        className="rounded-center bg-sand h-10 w-10"
+      >
+        {children}
+      </a>
     </div>
   );
 }
