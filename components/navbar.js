@@ -19,7 +19,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="flex justify-between items-center mx-24">
+    <header className="flex justify-between items-center mx-24 z-20">
       <div className="flex items-center">
         <div className="mr-1.5 bg-gradient-to-b from-orange via-orange to-purple h-12 w-12 rounded-center">
           <div className="text-4xl font-semibold bg-sand h-10 w-10 rounded-center">

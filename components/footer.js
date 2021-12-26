@@ -4,7 +4,7 @@ import CircleButton from "@components/circle-button";
 
 export default function Footer() {
   return (
-    <footer className="flex justify-between items-center mx-24">
+    <footer className="flex justify-between items-center mx-24 z-20">
       <div className="flex items-center">
         <p className="font-semibold">Thanks for <span className="text-orange underline"> coming!</span></p>
       </div>

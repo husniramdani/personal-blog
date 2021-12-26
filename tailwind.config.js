@@ -13,6 +13,7 @@ module.exports = {
       },
       boxShadow: {
         blue: "0 4px 16px 0 rgba(190, 201, 242)",
+        inset: "inset 10px 0 8px -8px rgb(0 0 0 / 15%)",
       },
       fontFamily: {
         sans: ["Poppins", "Helvetica", "Arial", "sans-serif"],
@@ -65,6 +66,7 @@ module.exports = {
       gray: colors.gray,
       black: "#201F1F",
       sand: "#F9F4EC",
+      darksand: "#CEBDA2",
       orange: "#EE5626",
       purple: "#35109F",
     },
