@@ -5,6 +5,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', // 'media' or 'class'
   theme: {
     extend: {
       screens: {
@@ -12,9 +13,11 @@ module.exports = {
       },
       boxShadow: {
         blue: "0 4px 16px 0 rgba(190, 201, 242)",
+        inset: "inset 10px 0 8px -8px rgb(0 0 0 / 15%)",
       },
       fontFamily: {
         sans: ["Poppins", "Helvetica", "Arial", "sans-serif"],
+        serif: ['"Times New Roman"', 'ui-serif', 'Georgia', 'Cambria', 'Times', 'serif']
       },
       width: {
         18: "4.5rem",
@@ -26,6 +29,13 @@ module.exports = {
         42: "10.5rem",
         46: "11.5rem",
         50: "12.5rem",
+        68: "17rem",
+        72: "18rem",
+        76: "19rem",
+        84: "21rem",
+        88: "22rem",
+        90: "22.5rem",
+        92: "23rem",
         100: "25rem",
         104: "26rem",
         108: "27rem",
@@ -40,6 +50,9 @@ module.exports = {
         42: "10.5rem",
         46: "11.5rem",
         50: "12.5rem",
+        68: "17rem",
+        72: "18rem",
+        76: "19rem",
         100: "25rem",
         120: "30rem",
         140: "35rem",
@@ -47,13 +60,21 @@ module.exports = {
         160: "40rem",
         200: "50rem",
       },
+      minHeight: {
+        140: "35rem",
+        152: "38rem",
+        156: "39rem",
+        160: "40rem",
+      }
     },
     colors: {
       white: colors.white,
       gray: colors.gray,
       black: "#201F1F",
       sand: "#F9F4EC",
+      darksand: "#CEBDA2",
       orange: "#EE5626",
+      purple: "#35109F",
     },
   },
   variants: {
@@ -63,5 +84,7 @@ module.exports = {
       cursor: ["disabled"],
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 };
