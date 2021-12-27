@@ -72,9 +72,7 @@ const data = [
 
 export default function Home() {
   const [scrollPos, setScrollPos] = useState(0);
-  const scrollEl = useRef(0)
-  let colPos = 0;
-  let counter = 1;
+  const scrollEl = useRef(0);
 
   const handleScroll = (e) => {
     let currentPos = scrollEl.current.scrollLeft
@@ -99,16 +97,7 @@ export default function Home() {
         >
           {
             data.map((x, index) => {
-              const justTooMuch = x.images && x.avatar;
               const T = x.title, I = x.images, D = x.detail, A = x.avatar, C = x.creator, P = x.published;
-              let isBetweenUs = '';
-              if (index > 0) {
-                isBetweenUs = (data[index - 1].images && data[index - 1].avatar) && (data[index + 1].images && data[index + 1].avatar)
-              }
-              // console.log(counter, justTooMuch)
-              counter += (justTooMuch || isBetweenUs) ? 2 : 1;
-              colPos += justTooMuch || isBetweenUs || counter % 2 === 0 ? 1 : 0;
-              // cek apakah before dan afternya too much
               return (
                 <div key={index} className={`w-68 mb-4 mr-5 pr-5 border-r border-gray-300 md:w-80`}>
                   {I &&
