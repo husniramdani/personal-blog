@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
+import Head from 'next/head'
 import Navbar from "@components/navbar";
 import Footer from "@components/footer";
 import ScrollContainer from 'react-indiana-drag-scroll'
@@ -103,7 +102,7 @@ export default function Home() {
                 <div key={index} className={`w-68 mb-4 mr-5 pr-5 border-r border-gray-300 md:w-80`}>
                   {I &&
                     <div className={`w-full ${A ? 'mb-4' : 'mb-2'}`}>
-                      <Image src={I} alt="thumbnail" className={`object-cover w-full ${A ? 'h-50' : 'h-34'}`} />
+                      <img src={I} alt="thumbnail" className={`object-cover w-full ${A ? 'h-50' : 'h-34'}`} />
                     </div>
                   }
                   <h2 className={`font-serif font-semibold tracking-tight md:tracking-wide text-3xl ${A ? 'line-clamp-3 mb-3' : 'line-clamp-2 mb-2'}`}>{T}</h2>
@@ -113,7 +112,7 @@ export default function Home() {
                   {A ?
                     <div className='flex items-center'>
                       <div className='bg-black p-1 overflow-hidden w-10 h-10 rounded-xl'>
-                        <Image src={A} alt="avatar" className='object-cover' />
+                        <img src={A} alt="avatar" className='object-cover' />
                       </div>
                       <div className='ml-2'>
                         <h6 className='text-sm font-semibold'>{C}</h6>
