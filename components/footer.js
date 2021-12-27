@@ -9,8 +9,6 @@ export default function Footer() {
         <p className="font-semibold mb-5 md:mb-0">Thanks for <span className="text-orange underline"> coming!</span></p>
       </div>
       <a
-        rel="noreferrer"
-        target="_blank"
         href="mailto:gblog@gmail.com"
         className="font-semibold underline hidden md:block"
       >
