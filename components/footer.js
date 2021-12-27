@@ -4,12 +4,12 @@ import CircleButton from "@components/circle-button";
 
 export default function Footer() {
   return (
-    <footer className="flex justify-between items-center mx-24 z-20">
+    <footer className="flex flex-col justify-between items-center z-20 md:mx-24 md:flex-row">
       <div className="flex items-center">
-        <p className="font-semibold">Thanks for <span className="text-orange underline"> coming!</span></p>
+        <p className="font-semibold mb-5 md:mb-0">Thanks for <span className="text-orange underline"> coming!</span></p>
       </div>
-      <h6 className="font-semibold underline">gblog@gmail.com</h6>
-      <div className="flex flex-row">
+      <a href="mailto:gblog@gmail.com" className="font-semibold underline hidden md:block">gblog@gmail.com</a>
+      <div className="flex flex-row space-x-4 mb-5 md:mb-5">
         <CircleButton link="https://www.twitter.com/spindyzel">
           <TwitterLogo
             className="m-auto stroke-current text-black group-hover:text-orange"

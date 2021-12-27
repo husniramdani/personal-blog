@@ -82,7 +82,7 @@ export default function Home() {
   }
 
   return (
-    <div className='py-10 h-screen flex flex-col justify-between'>
+    <div className='py-5 h-screen flex flex-col justify-between md:py-10'>
       <Head>
         <title>Blog</title>
         <meta name="description" content="Personal Blog Spindyzel" />
@@ -90,12 +90,12 @@ export default function Home() {
       </Head>
 
       <Navbar />
-      <main className='flex flex-col min-h-156'>
-        <h1 className='text-center underline font-bold text-3xl mb-8'>Latest Updates</h1>
+      <main className='flex flex-col min-h-140 md:min-h-156'>
+        <h1 className='text-center underline font-bold text-2xl mb-5 md:mb-8 md:text-3xl'>Latest Updates</h1>
         <ScrollContainer
           ref={scrollEl}
           onScroll={(e) => handleScroll(e)}
-          className={`relative flex flex-wrap flex-col content-start ml-24 h-full overflow-x-auto -mt-8 pt-8 ${scrollPos > 0 ? 'shadow-inset' : ''}`}
+          className={`relative flex flex-wrap flex-col content-start h-full overflow-x-auto -mt-5 pt-5 md:-mt-8 md:pt-8 ml-8 md:ml-24 ${scrollPos > 0 ? 'shadow-inset' : ''}`}
         >
           {
             data.map((x, index) => {
@@ -110,13 +110,13 @@ export default function Home() {
               colPos += justTooMuch || isBetweenUs || counter % 2 === 0 ? 1 : 0;
               // cek apakah before dan afternya too much
               return (
-                <div key={index} className={`w-80 mb-4 mr-5 pr-5 border-r border-gray-300`}>
+                <div key={index} className={`w-68 mb-4 mr-5 pr-5 border-r border-gray-300 md:w-80`}>
                   {I &&
                     <div className={`w-full ${A ? 'mb-4' : 'mb-2'}`}>
                       <img src={I} alt="thumbnail" className={`object-cover w-full ${A ? 'h-50' : 'h-34'}`} />
                     </div>
                   }
-                  <h2 className={`font-serif text-3xl font-semibold tracking-wide ${A ? 'line-clamp-3 mb-3' : 'line-clamp-2 mb-2'}`}>{T}</h2>
+                  <h2 className={`font-serif font-semibold tracking-tight md:tracking-wide text-3xl ${A ? 'line-clamp-3 mb-3' : 'line-clamp-2 mb-2'}`}>{T}</h2>
                   {D &&
                     <p className={`text-sm text-justify line-clamp-3 ${A ? 'mb-3' : 'mb-2'} leading-relaxed`}>{D}</p>
                   }
