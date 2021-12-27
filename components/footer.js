@@ -10,6 +10,7 @@ export default function Footer() {
       </div>
       <a
         rel="noreferrer"
+        target="_blank"
         href="mailto:gblog@gmail.com"
         className="font-semibold underline hidden md:block"
       >
