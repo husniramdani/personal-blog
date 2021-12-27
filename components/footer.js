@@ -8,7 +8,13 @@ export default function Footer() {
       <div className="flex items-center">
         <p className="font-semibold mb-5 md:mb-0">Thanks for <span className="text-orange underline"> coming!</span></p>
       </div>
-      <a href="mailto:gblog@gmail.com" className="font-semibold underline hidden md:block">gblog@gmail.com</a>
+      <a
+        rel="noreferrer"
+        href="mailto:gblog@gmail.com"
+        className="font-semibold underline hidden md:block"
+      >
+        gblog@gmail.com
+      </a>
       <div className="flex flex-row space-x-4 mb-5 md:mb-5">
         <CircleButton link="https://www.twitter.com/spindyzel">
           <TwitterLogo
