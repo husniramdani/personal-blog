@@ -6,6 +6,7 @@ export default function CircleButton({ link, children }) {
       <a
         href={link}
         target="_blank"
+        rel="noreferrer"
         className="rounded-center bg-sand h-10 w-10"
       >
         {children}
