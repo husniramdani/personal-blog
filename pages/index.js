@@ -86,14 +86,16 @@ export default function Home() {
         <meta name="description" content="Personal Blog Spindyzel" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className={`h-full w-20 absolute top-0 right-0 ${scrollPos <= 0 ? 'shadow-insetRight' : ''}`}></div>
+      <div className={`h-full w-20 absolute top-0 left-0 ${scrollPos > 0 ? 'shadow-insetLeft' : ''}`}></div>
 
       <Navbar />
-      <main className='flex flex-col min-h-140 md:min-h-156'>
+      <main className='flex flex-col min-h-140 md:min-h-156 z-10'>
         <h1 className='text-center underline font-bold text-2xl mb-5 md:mb-8 md:text-3xl'>Latest Updates</h1>
         <ScrollContainer
           ref={scrollEl}
           onScroll={(e) => handleScroll(e)}
-          className={`relative flex flex-wrap flex-col content-start h-full overflow-x-auto -mt-5 pt-5 md:-mt-8 md:pt-8 ml-8 md:ml-24 ${scrollPos > 0 ? 'shadow-inset' : ''}`}
+          className={`flex flex-wrap flex-col content-start h-full overflow-x-auto -mt-5 pt-5 pl-8 md:pl-24 md:-mt-8 md:pt-8`}
         >
           {
             data.map((x, index) => {
