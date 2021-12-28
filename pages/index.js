@@ -1,11 +1,13 @@
 import React, { useState, useRef } from 'react';
-import Head from 'next/head'
+import Head from 'next/head';
+import Link from 'next/link';
 import Navbar from "@components/navbar";
 import Footer from "@components/footer";
 import ScrollContainer from 'react-indiana-drag-scroll'
 
 const data = [
   {
+    id: 1,
     creator: "Husni Ramdani",
     published: "30 November 2021",
     avatar: "/images/avatar.png",
@@ -14,6 +16,7 @@ const data = [
     detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat pretium, mi sed id dui sed orci, tempor. Pellentesque egestas odio enim, accumsan, cursus. Fermentum in bibendum aliquet est viverra eu vitae in nibh. Leo, feugiat amet neque, quis. Amet, eget vulputate cursus in eu sit pulvinar et. Nibh at sem viverra pellentesque hac odio duis a. Urna vitae, at ac et rhoncus. Mauris sit accumsan vitae, nibh netus. In elementum pharetra in lacinia nibh. Non est eget egestas eu et purus amet. Vitae aliquam sit tincidunt pellentesque netus suspendisse vulputate. Dui justo, ac maecenas pharetra. ", // mandatory
   },
   {
+    id: 2,
     creator: "",
     published: "",
     avatar: "",
@@ -22,6 +25,7 @@ const data = [
     detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat pretium, mi sed id dui sed orci, tempor. Pellentesque egestas odio enim, accumsan, cursus. Fermentum in bibendum aliquet est viverra eu vitae in nibh. Leo, feugiat amet neque, quis. Amet, eget vulputate cursus in eu sit pulvinar et. Nibh at sem viverra pellentesque hac odio duis a. Urna vitae, at ac et rhoncus. Mauris sit accumsan vitae, nibh netus. In elementum pharetra in lacinia nibh. Non est eget egestas eu et purus amet. Vitae aliquam sit tincidunt pellentesque netus suspendisse vulputate. Dui justo, ac maecenas pharetra. ",
   },
   {
+    id: 3,
     creator: "Husni Ramdani",
     published: "",
     avatar: "/images/avatar.png",
@@ -30,6 +34,7 @@ const data = [
     detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat pretium, mi sed id dui sed orci, tempor. Pellentesque egestas odio enim, accumsan, cursus. Fermentum in bibendum aliquet est viverra eu vitae in nibh. Leo, feugiat amet neque, quis. Amet, eget vulputate cursus in eu sit pulvinar et. Nibh at sem viverra pellentesque hac odio duis a. Urna vitae, at ac et rhoncus. Mauris sit accumsan vitae, nibh netus. In elementum pharetra in lacinia nibh. Non est eget egestas eu et purus amet. Vitae aliquam sit tincidunt pellentesque netus suspendisse vulputate. Dui justo, ac maecenas pharetra. ",
   },
   {
+    id: 4,
     creator: "Husni Ramdani",
     published: "30 November 2021",
     avatar: "/images/avatar.png",
@@ -38,6 +43,7 @@ const data = [
     detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat pretium, mi sed id dui sed orci, tempor. Pellentesque egestas odio enim, accumsan, cursus. Fermentum in bibendum aliquet est viverra eu vitae in nibh. Leo, feugiat amet neque, quis. Amet, eget vulputate cursus in eu sit pulvinar et. Nibh at sem viverra pellentesque hac odio duis a. Urna vitae, at ac et rhoncus. Mauris sit accumsan vitae, nibh netus. In elementum pharetra in lacinia nibh. Non est eget egestas eu et purus amet. Vitae aliquam sit tincidunt pellentesque netus suspendisse vulputate. Dui justo, ac maecenas pharetra. ",
   },
   {
+    id: 5,
     creator: "Husni Ramdani",
     published: "",
     avatar: "",
@@ -46,6 +52,7 @@ const data = [
     detail: "",
   },
   {
+    id: 6,
     creator: "Husni Ramdani",
     published: "",
     avatar: "",
@@ -53,6 +60,7 @@ const data = [
     detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat pretium, mi sed id dui sed orci, tempor. Pellentesque egestas odio enim, accumsan, cursus. Fermentum in bibendum aliquet est viverra eu vitae in nibh. Leo, feugiat amet neque, quis. Amet, eget vulputate cursus in eu sit pulvinar et. Nibh at sem viverra pellentesque hac odio duis a. Urna vitae, at ac et rhoncus. Mauris sit accumsan vitae, nibh netus. In elementum pharetra in lacinia nibh. Non est eget egestas eu et purus amet. Vitae aliquam sit tincidunt pellentesque netus suspendisse vulputate. Dui justo, ac maecenas pharetra. ",
   },
   {
+    id: 7,
     creator: "Husni Ramdani",
     published: "30 November 2021",
     avatar: "/images/avatar.png",
@@ -61,6 +69,7 @@ const data = [
     detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat pretium, mi sed id dui sed orci, tempor. Pellentesque egestas odio enim, accumsan, cursus. Fermentum in bibendum aliquet est viverra eu vitae in nibh. Leo, feugiat amet neque, quis. Amet, eget vulputate cursus in eu sit pulvinar et. Nibh at sem viverra pellentesque hac odio duis a. Urna vitae, at ac et rhoncus. Mauris sit accumsan vitae, nibh netus. In elementum pharetra in lacinia nibh. Non est eget egestas eu et purus amet. Vitae aliquam sit tincidunt pellentesque netus suspendisse vulputate. Dui justo, ac maecenas pharetra. ",
   },
   {
+    id: 8,
     creator: "Husni Ramdani",
     published: "30 November 2021",
     avatar: "/images/avatar.png",
@@ -86,8 +95,8 @@ export default function Home() {
         <meta name="description" content="Personal Blog Spindyzel" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={`h-full w-20 fixed top-0 right-0 ${scrollPos <= 0 ? 'shadow-insetRight' : ''}`}></div>
-      <div className={`h-full w-20 fixed top-0 left-0 ${scrollPos > 0 ? 'shadow-insetLeft' : ''}`}></div>
+
+      <div className={`h-full w-20 fixed top-0 ${scrollPos <= 0 ? 'right-0 shadow-insetRight' : 'left-0 shadow-insetLeft'}`} />
 
       <Navbar />
       <main className='flex flex-col min-h-140 md:min-h-156 z-10'>
@@ -107,7 +116,11 @@ export default function Home() {
                       <img src={I} alt="thumbnail" className={`object-cover w-full ${A ? 'h-50' : 'h-34'}`} />
                     </div>
                   }
-                  <h2 className={`font-serif font-semibold tracking-tight md:tracking-wide text-3xl ${A ? 'line-clamp-3 mb-3' : 'line-clamp-2 mb-2'}`}>{T}</h2>
+                  <Link href={`/blog/${x.id}`}>
+                    <h2 className={`font-serif font-semibold tracking-tight text-3xl cursor-pointer underline-offset-2 decoration-2 decoration-orange hover:underline md:tracking-wide ${A ? 'line-clamp-3 mb-3' : 'line-clamp-2 mb-2'}`}>
+                      {T}
+                    </h2>
+                  </Link>
                   {D &&
                     <p className={`text-sm text-justify line-clamp-3 ${A ? 'mb-3' : 'mb-2'} leading-relaxed`}>{D}</p>
                   }
