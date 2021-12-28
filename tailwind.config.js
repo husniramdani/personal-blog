@@ -66,6 +66,15 @@ module.exports = {
         152: "38rem",
         156: "39rem",
         160: "40rem",
+      },
+      maxHeight: {
+        100: "25rem",
+        108: "27rem",
+        120: "30rem",
+        140: "35rem",
+        152: "38rem",
+        156: "39rem",
+        160: "40rem",
       }
     },
     colors: {
