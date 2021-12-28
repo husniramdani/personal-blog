@@ -117,7 +117,17 @@ export default function Home() {
                     </div>
                   }
                   <Link href={`/blog/${x.id}`}>
-                    <h2 className={`font-serif font-semibold tracking-tight text-3xl cursor-pointer underline-offset-2 decoration-2 decoration-orange hover:underline md:tracking-wide ${A ? 'line-clamp-3 mb-3' : 'line-clamp-2 mb-2'}`}>
+                    <h2
+                      className={`
+                        font-serif font-semibold tracking-tight text-3xl break-words
+                        cursor-pointer underline-offset-2 decoration-2 decoration-orange
+                        hover:underline
+                        md:tracking-wide
+                        ${A ? 'line-clamp-3 mb-3' : 'line-clamp-2 mb-2'}
+                      `}
+                    >
+                      {/* handle it with overflow-wrap: break-word*/}
+                      {/* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */}
                       {T}
                     </h2>
                   </Link>
@@ -126,8 +136,8 @@ export default function Home() {
                   }
                   {A ?
                     <div className='flex items-center'>
-                      <div className='bg-black p-1 overflow-hidden w-10 h-10 rounded-xl'>
-                        <img src={A} alt="avatar" className='object-cover' />
+                      <div className='bg-black p-1.5 overflow-hidden w-10 h-10 rounded-xl'>
+                        <img src={A} alt="avatar" />
                       </div>
                       <div className='ml-2'>
                         <h6 className='text-sm font-semibold'>{C}</h6>

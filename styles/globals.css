@@ -33,6 +33,11 @@ a {
 .rounded-center {
   @apply rounded-full flex justify-center items-center;
 }
-/* .grid-content:nth-child(even){
-  background-color: red;
-} */
+
+.circle-divider {
+  @apply bg-black w-2 h-2 rounded-full;
+}
+
+.content-paragraph {
+  @apply text-justify break-words text-sm leading-relaxed mt-5 sm:text-base md:text-lg;
+}
