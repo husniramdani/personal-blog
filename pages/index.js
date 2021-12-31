@@ -1,9 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Client } from '@notionhq/client';
+import ScrollContainer from 'react-indiana-drag-scroll';
+
 import Head from 'next/head';
 import Link from 'next/link';
+
 import Navbar from "@components/navbar";
 import Footer from "@components/footer";
-import ScrollContainer from 'react-indiana-drag-scroll'
+
 
 const data = [
   {
@@ -79,9 +83,26 @@ const data = [
   },
 ]
 
-export default function Home() {
+export async function getStaticProps(){
+  const notion = new Client({ auth: process.env.NOTION_API_KEY });
+  const DB = process.env.DB;
+  const response = await notion.databases.query({
+    database_id: DB,
+  })
+  return {
+    props: {
+      results: response.results,
+    }
+  }
+}
+
+export default function Home({ results }) {
   const [scrollPos, setScrollPos] = useState(0);
   const scrollEl = useRef(0);
+
+  useEffect(() => {
+    console.log(results);
+  });
 
   const handleScroll = (e) => {
     let currentPos = scrollEl.current.scrollLeft
