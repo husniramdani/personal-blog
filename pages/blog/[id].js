@@ -1,9 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Client } from '@notionhq/client';
+
 import Head from 'next/head';
+
 import Navbar from "@components/navbar";
 import Footer from "@components/footer";
 
-export default function Blog() {
+export async function getStaticPaths() {
+  const BLOCK_ID = "033fe713-d020-401f-8314-c2f4719d6b66";
+  return {
+    paths: [
+      { params: { id: BLOCK_ID } },
+    ],
+    fallback: true,
+  }
+}
+
+export async function getStaticProps(){
+  const notion = new Client({ auth: process.env.NOTION_API_KEY });
+  const BLOCK_ID = "033fe713-d020-401f-8314-c2f4719d6b66";
+  const response = await notion.blocks.children.list({
+    block_id: BLOCK_ID,
+  })
+  return {
+    props: {
+      results: response.results,
+    }
+  }
+}
+
+export default function Blog({ results }) {
+  useEffect(() => {
+    console.log(results);
+  });
+
   return (
     <div className='py-5 md:py-10'>
       <Head>
@@ -39,7 +69,7 @@ export default function Blog() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat pretium, mi sed id dui sed orci, tempor. Pellentesque egestas odio enim, accumsan, cursus. Fermentum in bibendum aliquet est viverra eu vitae in nibh. Leo, feugiat amet neque, quis. Amet, eget vulputate cursus in eu sit pulvinar et.
             </p>
             <p className='content-paragraph'>
-            Nibh at sem viverra pellentesque hac odio duis a. Urna vitae, at ac et rhoncus. Mauris sit accumsan vitae, nibh netus. In elementum pharetra in lacinia nibh. Non est eget egestas eu et purus amet. Vitae aliquam sit tincidunt pellentesque netus suspendisse vulputate. Dui justo, ac maecenas pharetra.
+              Nibh at sem viverra pellentesque hac odio duis a. Urna vitae, at ac et rhoncus. Mauris sit accumsan vitae, nibh netus. In elementum pharetra in lacinia nibh. Non est eget egestas eu et purus amet. Vitae aliquam sit tincidunt pellentesque netus suspendisse vulputate. Dui justo, ac maecenas pharetra.
             </p>
           </div>
           {/* default thumbnail */}
