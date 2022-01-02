@@ -6,18 +6,41 @@ import Head from 'next/head';
 import Navbar from "@components/navbar";
 import Footer from "@components/footer";
 
+const notion = new Client({ auth: process.env.NOTION_API_KEY });
+const DB = process.env.DB;
+
 export async function getStaticPaths() {
-  const BLOCK_ID = "033fe713-d020-401f-8314-c2f4719d6b66";
+  const response = await notion.databases.query({
+    database_id: DB,
+    filter: {
+      and: [
+        {
+          property: "Title",
+          text: {
+            is_not_empty: true,
+          },
+        },
+        {
+          property: "Status",
+          select: {
+            equals: "published",
+          },
+        },
+      ]
+    },
+  });
+
+  const paths = response.results.map(({ id }) => ({
+    params: { id }
+  }));
+
   return {
-    paths: [
-      { params: { id: BLOCK_ID } },
-    ],
-    fallback: true,
+    paths,
+    fallback: false,
   }
 }
 
-export async function getStaticProps(){
-  const notion = new Client({ auth: process.env.NOTION_API_KEY });
+export async function getStaticProps() {
   const BLOCK_ID = "033fe713-d020-401f-8314-c2f4719d6b66";
   const response = await notion.blocks.children.list({
     block_id: BLOCK_ID,
