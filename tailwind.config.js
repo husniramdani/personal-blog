@@ -20,6 +20,13 @@ module.exports = {
         sans: ["Poppins", "Helvetica", "Arial", "sans-serif"],
         serif: ['"Times New Roman"', 'ui-serif', 'Georgia', 'Cambria', 'Times', 'serif']
       },
+      grayscale: {
+        50: '50%',
+        80: '80%',
+        85: '85%',
+        90: '90%',
+        95: '95%',
+      },
       width: {
         18: "4.5rem",
         22: "5.5rem",
