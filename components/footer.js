@@ -17,21 +17,21 @@ export default function Footer() {
       <div className="flex flex-row space-x-4 mb-5 md:mb-5">
         <CircleButton link="https://www.twitter.com/spindyzel">
           <TwitterLogo
-            className="m-auto stroke-current text-black group-hover:text-orange"
+            className="m-auto stroke-current text-black group-hover:text-orange dark:text-gray-200"
             size={24}
             weight="fill"
           />
         </CircleButton>
         <CircleButton link="https://www.github.com/husniramdani/personal-blog">
           <GithubLogo
-            className="m-auto stroke-current text-black group-hover:text-orange"
+            className="m-auto stroke-current text-black group-hover:text-orange dark:text-gray-200"
             size={24}
             weight="fill"
           />
         </CircleButton>
         <CircleButton link="https://www.figma.com/community/file/1047928907190850139">
           <FigmaLogo
-            className="m-auto stroke-current text-black group-hover:text-orange"
+            className="m-auto stroke-current text-black group-hover:text-orange dark:text-gray-200"
             size={24}
             weight="fill"
           />

@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
 import { Client } from '@notionhq/client';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import moment from 'moment';
 
+import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -13,11 +13,7 @@ import Footer from "@components/footer";
 export default function Home({ results }) {
   const [scrollPos, setScrollPos] = useState(0);
   const scrollEl = useRef(0);
-
-  useEffect(() => {
-    console.log(results);
-  }, [results]);
-
+  
   const handleScroll = () => {
     let currentPos = scrollEl.current.scrollLeft
     setScrollPos(currentPos)
@@ -34,7 +30,7 @@ export default function Home({ results }) {
       <div className={`h-full w-20 z-50 fixed top-0 ${scrollPos <= 0 ? 'right-0 shadow-insetRight' : 'left-0 shadow-insetLeft'}`} />
 
       <Navbar />
-      <main className='flex flex-col min-h-140 md:min-h-156 z-10'>
+      <main className='flex flex-col min-h-140 md:min-h-148 z-10'>
         <h1 className='text-center underline font-bold text-2xl mb-5 md:mb-8 md:text-3xl'>Latest Updates</h1>
         <ScrollContainer
           ref={scrollEl}
