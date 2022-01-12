@@ -24,7 +24,7 @@ export default function Navbar() {
       <Link href="/">
         <div className="flex items-center cursor-pointer">
           <div className="mr-1.5 bg-gradient-to-b from-orange via-orange to-purple h-12 w-12 rounded-center">
-            <div className="text-4xl font-semibold bg-sand h-10 w-10 rounded-center">
+            <div className="text-4xl font-semibold bg-sand h-10 w-10 rounded-center dark:bg-black">
               G
             </div>
           </div>
