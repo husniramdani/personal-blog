@@ -6,7 +6,7 @@
 
 html,
 body {
-  @apply text-black bg-sand p-0 m-0;
+  @apply text-black bg-sand p-0 m-0 dark:bg-black dark:text-gray-200;
 }
 
 a {
@@ -35,7 +35,7 @@ a {
 }
 
 .circle-divider {
-  @apply bg-black w-2 h-2 rounded-full;
+  @apply bg-black w-2 h-2 rounded-full dark:bg-gray-300;
 }
 
 .content-paragraph {

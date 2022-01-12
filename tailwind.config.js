@@ -70,6 +70,7 @@ module.exports = {
       },
       minHeight: {
         140: "35rem",
+        148: "37rem",
         152: "38rem",
         156: "39rem",
         160: "40rem",
@@ -103,5 +104,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/typography'),
   ],
 };
