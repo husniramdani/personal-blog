@@ -32,13 +32,12 @@ export default function Navbar() {
         </div>
       </Link>
 
-      <div className="relative group">
-        <div className="absolute bg-transparent dark:bg-orange rounded-2xl -inset-0.5 blur opacity-60 transition md:duration-1000 md:group-hover:duration-200 md:group-hover:opacity-100">
-        </div>
+      <div className="relative group p-0.5 dark:bg-orange rounded-2xl">
+        <div className="absolute hidden md:block dark:bg-orange rounded-2xl -inset-0.5 blur opacity-60 transition duration-1000 group-hover:duration-200 group-hover:opacity-100" />
         <div onClick={switchTheme} className="relative flex bg-black w-14 h-7 rounded-2xl px-1 items-center justify-between cursor-pointer">
           <input id="toogle-theme" type="checkbox" className="hidden" checked={isChecked} readOnly />
-          <Moon weight="fill" size={19} className="text-gray-400" />
-          <Sun weight="fill" size={19} className="text-orange" />
+          <Sun weight="fill" size={19} className="text-gray-400" />
+          <Moon weight="fill" size={19} className="text-orange" />
           <span className="toggle-dot bg-white rounded-full w-5 h-5 absolute"></span>
         </div>
       </div>
