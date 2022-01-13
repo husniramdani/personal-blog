@@ -13,8 +13,8 @@ module.exports = {
       },
       boxShadow: {
         blue: "0 4px 16px 0 rgba(190, 201, 242)",
-        insetLeft: "inset 23px 0px 25px -20px rgba(0,0,0,0.65)",
-        insetRight: "inset -23px 0px 25px -20px rgba(0,0,0,0.65)",
+        insetLeft: "inset 23px 0px 15px -20px rgba(0,0,0,0.65)",
+        insetRight: "inset -23px 0px 15px -20px rgba(0,0,0,0.65)",
       },
       fontFamily: {
         sans: ["Poppins", "Helvetica", "Arial", "sans-serif"],
