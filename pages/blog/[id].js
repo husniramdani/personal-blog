@@ -67,7 +67,7 @@ export default function Blog({ pages, blocks }) {
               className={`object-cover w-full max-h-96 md:max-h-100 lg:max-h-120`}
             />
           }
-          <article className='py-5 max-w-none prose dark:prose-invert prose-hr:border-gray-400'>
+          <article className='py-5 max-w-none prose dark:prose-invert prose-hr:border-gray-400 break-words'>
             {
               blocks.map((block, index) => {
                 const key = block[block.type];
