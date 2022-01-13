@@ -18,11 +18,13 @@ export default function Blog({ pages, blocks }) {
 
   return (
     <div className='min-h-screen py-5 md:py-10'>
+      {/* seo */}
       <Head>
         <title>{title}</title>
         <meta name="description" content="Detail content Blog Spindyzel" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
       <Navbar />
       <main className='flex justify-center'>
         {/* content */}
@@ -60,6 +62,7 @@ export default function Blog({ pages, blocks }) {
             <div className='circle-divider' />
             <div className='circle-divider' />
           </div>
+          {/* cover */}
           {cover &&
             <img
               src={cover}
@@ -67,7 +70,8 @@ export default function Blog({ pages, blocks }) {
               className={`object-cover w-full max-h-96 md:max-h-100 lg:max-h-120`}
             />
           }
-          <article className='py-5 md:max-w-screen-md prose dark:prose-invert prose-hr:border-gray-400 break-words'>
+          {/* content article */}
+          <article className='py-5 mx-auto max-w-screen-xs sm:max-w-screen-sm md:max-w-screen-md prose dark:prose-invert prose-hr:border-gray-400 break-words'>
             {
               blocks.map((block, index) => {
                 const key = block[block.type];
