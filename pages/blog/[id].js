@@ -71,7 +71,7 @@ export default function Blog({ pages, blocks }) {
             />
           }
           {/* content article */}
-          <article className='py-5 mx-auto max-w-screen-xs sm:max-w-screen-sm md:max-w-screen-md prose dark:prose-invert prose-hr:border-gray-400 break-words'>
+          <article className='py-5 mx-auto max-w-xs sm:max-w-screen-sm md:max-w-screen-md prose dark:prose-invert prose-hr:border-gray-400 break-words'>
             {
               blocks.map((block, index) => {
                 const key = block[block.type];
