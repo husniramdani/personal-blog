@@ -27,7 +27,7 @@ export default function Home({ results }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={`h-full w-20 z-50 fixed top-0 ${scrollPos <= 0 ? 'right-0 shadow-insetRight' : 'left-0 shadow-insetLeft'}`} />
+      {/* <div className={`h-full w-20 z-20 fixed top-0 ${scrollPos <= 0 ? 'right-0 shadow-insetRight' : 'left-0 shadow-insetLeft'}`} /> */}
 
       <Navbar />
       <main className='flex flex-col min-h-140 md:min-h-148 z-10'>
