@@ -67,18 +67,18 @@ export default function Blog({ pages, blocks }) {
               className={`object-cover w-full max-h-96 md:max-h-100 lg:max-h-120`}
             />
           }
-          <article className='py-5 max-w-none prose dark:prose-invert prose-hr:border-gray-400'>
+          <article className='py-5 md:max-w-screen-md prose dark:prose-invert prose-hr:border-gray-400 break-words'>
             {
               blocks.map((block, index) => {
                 const key = block[block.type];
                 const imgContent = key?.file?.url || "";
                 const content = Array.isArray(key.text) ? key.text.map(({plain_text}) => plain_text).join(' ') : "-"
                 if (block.type === "heading_1") {
-                  return <h1 key={index} className='break-words'>{content}</h1>
+                  return <h1 key={index}>{content}</h1>
                 } else if (block.type === "heading_2") {
-                  return <h2 key={index} className='break-words'>{content}</h2>
+                  return <h2 key={index}>{content}</h2>
                 } else if (block.type === "heading_3") {
-                  return <h3 key={index} className='break-words'>{content}</h3>
+                  return <h3 key={index}>{content}</h3>
                 } else if (block.type === "bulleted_list_item") {
                   return (
                     <ul key={index} className='not-prose'>
@@ -86,15 +86,15 @@ export default function Blog({ pages, blocks }) {
                     </ul>
                   )
                 } else if (block.type === "quote") {
-                  return <blockquote className='border-black dark:border-gray-300 break-words' key={index}>{content}</blockquote>
+                  return <blockquote className='border-black dark:border-gray-300' key={index}>{content}</blockquote>
                 } else if (block.type === "divider") {
                   return <hr key={index} />
                 } else if (block.type === "image") {
                   return <img key={index} src={imgContent} />
                 } else if (block.type === "code") {
-                  return <code key={index} className='break-words'>{content}</code>
+                  return <code key={index}>{content}</code>
                 } else {
-                  return <p key={index} className='break-words'>{content}</p>
+                  return <p key={index}>{content}</p>
                 }
               })
             }
