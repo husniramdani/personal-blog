@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Client } from '@notionhq/client';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import moment from 'moment';
@@ -7,40 +7,41 @@ import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import Navbar from "@components/navbar";
-import Footer from "@components/footer";
+import Navbar from '@components/navbar';
+import Footer from '@components/footer';
 
 export default function Home({ results }) {
-  const [scrollPos, setScrollPos] = useState(0);
   const scrollEl = useRef(0);
-
-  const handleScroll = () => {
-    let currentPos = scrollEl.current.scrollLeft
-    setScrollPos(currentPos)
-  }
-
   return (
-    <div className='py-5 h-screen flex flex-col justify-between md:py-10'>
+    <div className='
+      py-5 h-screen flex flex-col justify-between
+      md:py-10
+    '>
       {/* SEO */}
       <Head>
         <title>GBlog</title>
-        <meta name="description" content="Personal Blog Spindyzel" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content='Personal Blog Spindyzel' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
-
-      <div className={`h-full w-5 z-20 fixed top-0 ${scrollPos <= 0 ? 'right-0 shadow-insetRight' : 'left-0 shadow-insetLeft'}`} />
 
       <Navbar />
       {/* main page */}
-      <main className='flex flex-col min-h-140 md:min-h-148'>
-        <h1 className='text-center underline font-bold text-2xl mb-5 md:mb-8 md:text-3xl'>Latest Updates</h1>
+      <main className='
+        flex flex-col min-h-140
+        md:min-h-148
+      '>
+        <h1 className='
+          mb-5 text-2xl text-center underline font-bold
+          md:mb-8 md:text-3xl
+        '>
+          Latest Updates
+        </h1>
         <ScrollContainer
           ref={scrollEl}
-          onScroll={(e) => handleScroll(e)}
-          className="
-            flex flex-wrap flex-col content-start h-full overflow-x-auto -mt-5 pt-5 pl-8
+          className='
+            pl-8 -mt-5 pt-5 flex flex-wrap flex-col content-start h-full overflow-x-auto
             md:pl-24 md:-mt-8 md:pt-8
-          "
+          '
         >
           {
             results.map((data, index) => {
@@ -48,18 +49,18 @@ export default function Home({ results }) {
                 id, Title, cover, Subtitle,
                 Published, Layout,
                 Creator: {
-                  avatar_url = "",
-                  name = ""
+                  avatar_url = '',
+                  name = ''
                 },
               } = data;
-              const isMainTypeWithAvatar = Layout === "type1" && avatar_url;
+              const isMainTypeWithAvatar = Layout === 'type1' && avatar_url;
               return (
                 <div
                   key={index}
-                  className="
+                  className='
                     w-68 mb-4 mr-5 pr-5 border-r border-gray-300
                     md:w-80
-                  "
+                  '
                 >
                   <Link href={`/blog/${id}`}>
                     <div className='group cursor-pointer'>
@@ -71,9 +72,9 @@ export default function Home({ results }) {
                         `}>
                           <Image
                             src={cover}
-                            alt="thumbnail"
+                            alt='thumbnail'
                             layout='fill'
-                            objectFit="cover"
+                            objectFit='cover'
                             quality={40}
                             className='transition duration-500 group-hover:scale-125'
                           />
@@ -119,13 +120,13 @@ export default function Home({ results }) {
                           src={avatar_url}
                           alt='avatar'
                           layout='fill'
-                          objectFit="contain"
+                          objectFit='contain'
                           quality={50}
                         />
                       </div>
                       <div className='ml-2'>
                         <h6 className='text-sm font-semibold'>{name}</h6>
-                        <h6 className='text-xs'>{moment(Published).format("DD MMMM YYYY")}</h6>
+                        <h6 className='text-xs'>{moment(Published).format('DD MMMM YYYY')}</h6>
                       </div>
                     </div>
                     :
@@ -156,15 +157,15 @@ export async function getStaticProps() {
     filter: {
       and: [
         {
-          property: "Title",
+          property: 'Title',
           text: {
             is_not_empty: true,
           },
         },
         {
-          property: "Status",
+          property: 'Status',
           select: {
-            equals: "published",
+            equals: 'published',
           },
         },
       ]
@@ -173,12 +174,12 @@ export async function getStaticProps() {
   const articles = response.results.map(({ id, cover, properties: { Creator, Title, Subtitle, Published, Layout } }) => {
     return {
       id,
-      cover: cover ? cover?.type === "external" ? cover.external.url : cover.file.url : "",
-      Title: Title?.title[0]?.plain_text || "",
-      Creator: Creator?.people[0] || "",
+      cover: cover ? cover?.type === 'external' ? cover.external.url : cover.file.url : '',
+      Title: Title?.title[0]?.plain_text || '',
+      Creator: Creator?.people[0] || '',
       Subtitle: Subtitle.rich_text,
-      Published: Published?.date?.start || "",
-      Layout: Layout?.select?.name || "type1",
+      Published: Published?.date?.start || '',
+      Layout: Layout?.select?.name || 'type1',
     }
   })
   return {
