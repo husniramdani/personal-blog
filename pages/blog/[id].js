@@ -5,12 +5,12 @@ import moment from 'moment';
 import Image from 'next/image';
 import Head from 'next/head';
 
-import Navbar from "@components/navbar";
-import Footer from "@components/footer";
+import Navbar from '@components/navbar';
+import Footer from '@components/footer';
 
 export default function Blog({ pages, blocks }) {
   const {
-    Creator: { avatar_url = "", name = "" },
+    Creator: { avatar_url = '', name = '' },
     Title, Published, cover
   } = pages;
 
@@ -19,8 +19,8 @@ export default function Blog({ pages, blocks }) {
       {/* seo */}
       <Head>
         <title>{Title}</title>
-        <meta name="description" content="Detail content Blog Spindyzel" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content='Detail content Blog Spindyzel' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <Navbar />
@@ -48,7 +48,7 @@ export default function Blog({ pages, blocks }) {
                   src={avatar_url}
                   alt='avatar'
                   layout='fill'
-                  objectFit="contain"
+                  objectFit='contain'
                   quality={50}
                 />
               </div>
@@ -57,7 +57,7 @@ export default function Blog({ pages, blocks }) {
               <div className='ml-2'>
                 <h6 className='text-sm font-semibold text-orange'>{name}</h6>
                 {Published &&
-                  <h6 className='text-xs'>{moment(Published).format("DD MMMM YYYY")}</h6>
+                  <h6 className='text-xs'>{moment(Published).format('DD MMMM YYYY')}</h6>
                 }
               </div>
 
@@ -73,12 +73,12 @@ export default function Blog({ pages, blocks }) {
           {cover &&
             <img
               src={cover}
-              alt="thumbnail"
-              className="
+              alt='thumbnail'
+              className='
                 object-cover w-full max-h-96
                 md:max-h-100
                 lg:max-h-120
-              "
+              '
             />
           }
           {/* content article */}
@@ -95,33 +95,33 @@ export default function Blog({ pages, blocks }) {
               blocks.map((block, index) => {
                 const { type } = block;
                 const key = block[type];
-                const imgContent = key?.file?.url || "";
-                const content = Array.isArray(key.text) ? key.text.map(({ plain_text }) => plain_text).join(' ') : "-";
+                const imgContent = key?.file?.url || '';
+                const content = Array.isArray(key.text) ? key.text.map(({ plain_text }) => plain_text).join(' ') : '-';
 
                 switch (type) {
-                  case "heading_1":
+                  case 'heading_1':
                     return <h1 key={index}>{content}</h1>
-                  case "heading_2":
+                  case 'heading_2':
                     return <h2 key={index}>{content}</h2>
-                  case "heading_3":
+                  case 'heading_3':
                     return <h3 key={index}>{content}</h3>
-                  case "bulleted_list_item":
+                  case 'bulleted_list_item':
                     return (
                       <ul key={index} className='not-prose'>
                         <li>{content}</li>
                       </ul>
                     )
-                  case "quote":
+                  case 'quote':
                     return (
-                      <blockquote className='border-black dark:border-gray-300' key={index}>
+                      <blockquote key={index} className='border-black dark:border-gray-300'>
                         {content}
                       </blockquote>
                     )
-                  case "divider":
+                  case 'divider':
                     return <hr key={index} />
-                  case "image":
-                    return <img key={index} src={imgContent} />
-                  case "code":
+                  case 'image':
+                    return <img key={index} src={imgContent} className='mx-auto shadow-lg'/>
+                  case 'code':
                     return <code key={index}>{content}</code>
                   default:
                     return <p key={index}>{content}</p>
@@ -145,15 +145,15 @@ export async function getStaticPaths() {
     database_id: DB,
     filter: {
       and: [{
-        property: "Title",
+        property: 'Title',
         text: {
           is_not_empty: true,
         },
       },
       {
-        property: "Status",
+        property: 'Status',
         select: {
-          equals: "published",
+          equals: 'published',
         },
       }]
     },
@@ -194,12 +194,12 @@ export async function getStaticProps(context) {
     props: {
       pages: {
         id,
-        cover: cover ? cover?.type === "external" ? cover.external.url : cover.file.url : "",
-        Title: Title?.title[0]?.plain_text || "",
-        Creator: Creator?.people[0] || "",
+        cover: cover ? cover?.type === 'external' ? cover.external.url : cover.file.url : '',
+        Title: Title?.title[0]?.plain_text || '',
+        Creator: Creator?.people[0] || '',
         Subtitle: Subtitle.rich_text,
-        Published: Published?.date?.start || "",
-        Layout: Layout?.select?.name || "type1",
+        Published: Published?.date?.start || '',
+        Layout: Layout?.select?.name || 'type1',
       },
       blocks: blocks.results,
     }
