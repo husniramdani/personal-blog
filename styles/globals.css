@@ -37,7 +37,3 @@ a {
 .circle-divider {
   @apply bg-black w-2 h-2 rounded-full dark:bg-gray-300;
 }
-
-.content-paragraph {
-  @apply text-justify break-words text-sm leading-relaxed mt-5 sm:text-base md:text-lg;
-}
